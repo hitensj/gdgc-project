@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 app.use(
   cors({
     origin: [
-      "https://gdgc-project-git-main-hitensjs-projects.vercel.app",
+      "https://gdgc-project-five.vercel.app/",
       "http://localhost:3000"
     ],
     methods: ["GET"]
