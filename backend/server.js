@@ -18,7 +18,7 @@ app.use(
 );
 app.use(express.json());
 
-// Mock member data 
+// Member data 
 const members = [
   {
     id: 1,
