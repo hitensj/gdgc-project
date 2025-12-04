@@ -7,9 +7,16 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors({
-  origin: ['https://your-frontend-url.vercel.app']
-}));app.use(express.json());
+app.use(
+  cors({
+    origin: [
+      "https://gdgc-project-git-main-hitensjs-projects.vercel.app",
+      "http://localhost:3000"
+    ],
+    methods: ["GET"]
+  })
+);
+app.use(express.json());
 
 // Mock member data 
 const members = [
