@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Moon, Sun, MapPin, Code, X } from 'lucide-react';
 
-// Splash Screen Component
 const SplashScreen = ({ onComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => onComplete(), 3000);
@@ -28,7 +27,7 @@ const SplashScreen = ({ onComplete }) => {
   );
 };
 
-// Member Card Component
+
 const MemberCard = ({ member, isDark, onClick }) => (
   <div 
     onClick={() => onClick(member)}
@@ -68,7 +67,7 @@ const MemberCard = ({ member, isDark, onClick }) => (
   </div>
 );
 
-// Member Detail Modal
+
 const MemberModal = ({ member, isDark, onClose }) => {
   if (!member) return null;
 
@@ -132,7 +131,7 @@ const MemberModal = ({ member, isDark, onClose }) => {
   );
 };
 
-// Main App Component
+
 export default function GDGCMemberShowcase() {
   const [showSplash, setShowSplash] = useState(true);
   const [members, setMembers] = useState([]);
@@ -148,12 +147,12 @@ export default function GDGCMemberShowcase() {
   const [locationFilter, setLocationFilter] = useState('all');
   const [selectedMember, setSelectedMember] = useState(null);
 
-  // Load theme preference
+  //theme preference
   useEffect(() => {
     localStorage.setItem('gdgc-theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
-  // Fetch members from API
+ 
   useEffect(() => {
     if (!showSplash) {
       fetchMembers();
@@ -165,8 +164,9 @@ export default function GDGCMemberShowcase() {
     setError(null);
     
     try {
-      // Replace with your actual API URL
-      const API_URL = 'http://localhost:3001/members';
+      
+      const API_URL = 'https://gdgc-club.onrender.com/members';
+
       const response = await fetch(API_URL);
       
       if (!response.ok) throw new Error('Failed to fetch members');
@@ -176,7 +176,7 @@ export default function GDGCMemberShowcase() {
       setFilteredMembers(data.data || data);
     } catch (err) {
       setError(err.message);
-      // Fallback mock data for demo
+      //mock data cause I am not sure if the backend will work
       const mockData = [
         {
           id: 1,
@@ -206,7 +206,7 @@ export default function GDGCMemberShowcase() {
     }
   };
 
-  // Filter logic
+  
   useEffect(() => {
     let filtered = members;
 

@@ -7,8 +7,9 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: ['https://your-frontend-url.vercel.app']
+}));app.use(express.json());
 
 // Mock member data 
 const members = [
